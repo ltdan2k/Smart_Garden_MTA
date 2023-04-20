@@ -1,0 +1,246 @@
+
+          body {
+		  text-align:center;
+		
+		  background-size: contain;
+		  background-image: url('vn_garden.jpg');
+		  background-repeat: no-repeat;
+		  background-size: cover;
+		  
+		  /* color:rgba(0, 255, 21, 0.671); */
+		  font-family: Arial, Helvetica, sans-serif;
+		  }
+          input {
+            height:25px; 
+            width:270px;
+            font-size:20px;
+            margin: 10px auto;
+			border-radius:5px;
+          }
+		  font {
+			color: rgb(234, 240, 241);
+		  }
+		  
+		  table
+		  {
+			-moz-border-radius:10px;
+			-webkit-border-radius:10px;
+			border-radius:10px
+	
+		  }
+          #content {
+            background-color:#76f84bd0;
+			opacity: 0.9;
+            padding:5px;  
+            height:auto; 
+            width:auto; 
+            border-radius:20px;
+            margin: 0 auto;
+			color: rgb(17, 236, 28);
+			background: #76f84bd0;   
+
+          }       
+		  .cssnhietdo{
+	
+              outline: none;
+              margin: 15px 5px;
+              width: 100px;
+              height: 100px;
+              border-radius: 50%;
+              -moz-border-radius: 50%;
+              -webkit-border-radius: 50%;
+              color:white;
+              font-size:30px;
+              font-weight: bold;
+			  border: solid 1px #33ff33;
+              background: #3C89BC;
+          }	  
+		  
+		  .cssdoam{
+              outline: none;
+              margin: 15px 5px;
+              width: 100px;
+              height: 100px;
+              border-radius: 50%;
+              -moz-border-radius: 50%;
+              -webkit-border-radius: 50%;
+              color:white;
+              font-size:30px;
+              font-weight: bold;
+			  border: solid 1px #33ff33;
+              background: #3C89BC	;
+          }
+		  
+		
+		  
+		  .cssden{
+              outline: none;
+              margin: 15px 5px;
+              width: 80px;
+              height: 80px;
+              border-radius: 50%;
+              -moz-border-radius: 50%;
+              -webkit-border-radius: 50%;
+              color:white;
+              font-size:20px;
+              font-weight: bold;
+			   border: solid 2px #23C48E;
+              background: #23C48E;
+			  border: solid 1px #33ff33;
+              background: #3C89BC;
+			  
+          }
+		  
+		  .cssquat{
+              outline: none;
+              margin: 15px 5px;
+              width: 80px;
+              height: 80px;
+              border-radius: 50%;
+              -moz-border-radius: 50%;
+              -webkit-border-radius: 50%;
+              color:white;
+              font-size:20px;
+              font-weight: bold;
+			   border: solid 2px #23C48E;
+              background: #23C48E;
+			  border: solid 1px #33ff33;
+              background: #3C89BC;
+          }     
+          .button_quaylai{
+            height:70px; 
+            width:240px; 
+            margin:10px 0;
+            background-color:#3C89BC;
+            border-radius:15px;
+            outline:none;
+            color:white;
+            font-size:20px;
+            font-weight: bold;
+			border: none;
+			box-shadow: 0 9px #999;
+			display: inline-block;
+			text-align: center;
+			text-decoration: none;
+			padding: 10px 25px;
+			cursor: pointer;
+			border: solid 5px #33ff33;
+          }	  
+		  .button {
+			  display: inline-block;
+			  padding: 10px 25px;
+			  font-size: 25px;
+			  cursor: pointer;
+			  text-align: center;
+			  text-decoration: none;
+			  outline: none;
+			  color: white;
+			  background-color: #3C89BC;
+			  border: none;
+			  border-radius: 20px;
+			  box-shadow: 0 9px #999;
+			  height:70px; 
+			  width:150px;
+			  border: solid 5px #33ff33;
+			}
+			.button_save {
+				display: inline-block;
+				padding: 10px 25px;
+				font-size: 16px;
+				cursor: pointer;
+				text-align: center;
+				text-decoration: none;
+				outline: none;
+				color: white;
+				background-color: #3C89BC;
+				border: none;
+				border-radius: 20px;
+				box-shadow: 0 9px #999;
+				height:50px; 
+				width:85px;
+				border: solid 5px #33ff33;
+			}
+
+			.button:hover {background-color: #33ff33}
+			.button:active {
+			  background-color: #ff0000;
+			  box-shadow: 0 5px #666;
+			  transform: translateY(4px);
+			}
+			
+			.button_quaylai:hover {background-color: #33ff33}
+			.button_quaylai:active {
+			  background-color: #ff0000;
+			  box-shadow: 0 5px #666;
+			  transform: translateY(4px);
+			}
+			.button_save:hover {background-color: #33ff33}
+			.button_save:active {
+			  background-color: #ff0000;
+			  box-shadow: 0 5px #666;
+			  transform: translateY(4px);
+			}
+			.button_quaylai.on {
+				background-color: #33ff33;
+			}
+			tr
+			{
+			  background-color:#e52b2b;
+			  opacity: 0.9;
+			  color:white;
+			  -moz-border-radius:10px;
+				-webkit-border-radius:10px;
+				border-radius:10px
+			}
+			th		
+			{
+			 
+			  -moz-border-radius:10px;
+				-webkit-border-radius:10px;
+				border-radius:10px
+				border solid 5px Blue;
+			}
+			td		
+			{
+			 
+			  -moz-border-radius:10px;
+				-webkit-border-radius:10px;
+				border-radius:10px
+				border solid 5px Blue;
+			}
+			.field-icon {
+			  float: right;
+			  margin-left: -25px;
+			  margin-top: -25px;
+			  position: relative;
+			  z-index: 2;
+			}
+
+			.card{
+				
+				background-color: rgb(241, 242, 246);
+				
+			}
+			.container{
+			  padding-top:50px;
+			  margin: auto;
+			}
+			/* h1 {
+				text-align: center;
+			  }
+			  form {
+				text-align: center;
+			  }
+			  label {
+				display: inline-block;
+				width: 50px;
+				text-align: right;
+			  } */
+			  input {
+				width: 50px;
+			  }
+			  
+			
+			
+			
+     

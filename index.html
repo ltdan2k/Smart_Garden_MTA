@@ -1,0 +1,398 @@
+<!DOCTYPE html> 
+  <html>
+   <head> 
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+       <title>Smart Garden</title> 
+	   <link rel ="stylesheet" href="index.css">  
+      
+   </head>
+   
+   
+   <body onload="Start()"> 
+     
+      <div id="content" style="height:auto;width: 920px; "> 
+        <div id="dangnhap">
+		   <table width="920" height="auto" border="2" cellpadding="10" align="center" style="overflow:auto">
+   
+                 <tr >
+                       <th colspan="3" > <center> <font size="10"> <span class="font" > ĐĂNG NHẬP  </span></font></center></th>
+                 </tr>
+      
+			   <tr> 
+				 <td colspan="1" > 
+					<center> <span class="font" id="username"> <b> TÊN ĐĂNG NHẬP</b> </span> </center> 
+				 </td> 
+				 
+				  <td colspan="2"  align='left'> 
+				  
+					 <input id="ssid" style="height:30px; width:240px" align="left"/> 
+				</td> 
+				  
+			  </tr>
+  
+			  <tr> 
+				 <td colspan="1" > <center> <span class="font" id="password"> <b> MẬT KHẨU</b> </span> </center> </td>  
+				  <td colspan="2" align="left">   
+				
+					 <input id="pass" style="height:30px; width:240px"/> 
+				
+					 <input type="checkbox" style="height:20px; width:20px" onclick="myFunction()" checked />
+					
+					 </td> 
+				  </td>  
+			  </tr>
+			  
+			  <tr> 
+				 <td colspan="1" > <center> <span   class="font"> <b> XÁC NHẬN </b> </span> </center> </td>  
+				  <td colspan="2" align="left">
+						
+				     <div>
+						<input class="button_quaylai" type="button" onclick="login()" value="ĐỒNG Ý" style="height:60px; width:160px"/>
+					
+					 </div>
+					 
+					 </td> 
+				  </td>  
+			  </tr>
+         </table>
+
+		 
+        </div>
+
+        <div id="dieukhien" style="height:auto;width: 860px; ";>
+          <table width="860px" height="auto" border="1" cellpadding="2" align ="center" style="overflow:auto">
+   
+                 <tr>
+					<td colspan="2" > 
+						<center> 
+							<div><input class="button_quaylai" style = "width: 140px;"type="button" onclick="backHOME()" value="QUAY LẠI"/></div>	
+						</center> 
+					<td colspan="4" >   
+						<center> 
+						
+						<!-- <b><font size="7"> <span class="font">BẢNG</span></font></b>
+						<br> -->
+						<b><font size="7"> <span class="font">SMART GARDEN</span></font></b>
+						</center>
+					</td>  
+					   </td>  
+					   <td colspan="2" > 
+						<center> 
+							<div><input class="button_quaylai" style = "width: 130px;"type="button" id="button1" onclick="toggleButton(1)" value="MANUAL"/></div>	
+						</center> 
+				   		</td>
+				   		<td colspan="2" > 
+						<center> 
+							<div><input class="button_quaylai" style = "width: 120px;"type="button" id="button2" onclick="toggleButton(2)" value="AUTO1"/></div>	
+						</center> 
+						<td colspan="2" > 
+							<center> 
+								<div><input class="button_quaylai" style = "width: 120px;"type="button" id="button3" onclick="toggleButton(3)" value="AUTO2"/></div>	
+							</center> 
+			   			</td>
+							
+
+							
+					   			   
+                 </tr>
+				 
+				
+				 
+				 <tr> 
+					<td colspan="1" > 
+						<center> 
+							<font size="5"> <span class="font"> <b> NHIỆT ĐỘ </b> </span> </font>
+						</center> 
+					</td>  
+					<td colspan="1" >   
+						<center>
+						
+							<span id="nhietdo" class="cssnhietdo">00</span>
+						</center>
+					</td>  
+					
+					<td colspan="2" >   
+						<center>
+										
+						<span id="chart_nhietdo"  ;style="width: 400px; height: 120px;"></span>
+						</center>
+						
+					</td> 
+					<td colspan="3", rowspan="3" >  
+						<div>
+							<span class="font"> <b >Hà Nội</b>  </span>
+							<p>Nhiệt độ: <span id="temperature"></span></p>
+							<p>Độ ẩm: <span id="humidity"></span></p>
+							<p>Mô tả: <span id="description"></span></p>
+							<img id="icon" src="" alt="Weather icon" style="height:70px; width:150px;">
+						</div>
+	
+					</td>
+					<td colspan="2" >  
+						<span>Bật đèn nếu nhỏ hơn:</span>
+						<input type="number" class="css_input"id="temp_min" min="0" max="100"><br><br>
+					</td>
+					<td colspan="2" >  
+						<span>Tắt đèn nếu lớn hơn:</span>
+						<input type="number" class="css_input"id="temp_max" min="0" max="100"><br><br>
+					</td>
+					<td colspan="1" >  
+						<button type="button" id="button_temp" class="button_save" onclick="temp_save()">Save</button>
+	
+					</td>
+
+				</tr>
+				<tr> 
+					<td colspan="1" > 
+						<center>
+							<font size="5"> <span class="font"> <b> ĐỘ ẨM</b> </span> </font>
+						</center> 
+					</td>  
+					<td colspan="1" >   
+						<span id="doam" class="cssdoam" ></span>
+					</td>  
+					<td colspan="2" >   
+						<center>				
+						<div id="chart_doam";style="width: 400px; height: 120px;"></div>
+						</center>
+						
+					</td> 
+					<td colspan="2" >  
+						<span>Bật quạt nếu nhỏ hơn:</span>
+						<input type="number" class="css_input"id="hum_min" min="0" max="100"><br><br>
+					</td>
+					<td colspan="2" >  
+						<span>Tắt quạt nếu lớn hơn:</span>
+						<input type="number" class="css_input"id="hum_max" min="0" max="100"><br><br>
+					</td>
+					<td colspan="1" >  
+						<button type="button" id="button_hum" class="button_save" onclick="hum_save()">Save</button>
+	
+					</td>
+				</tr>
+
+				<tr> 
+					<td colspan="1" > 
+						<center>
+							<font size="5"> <span class="font"> <b> ĐỘ ẨM ĐẤT</b> </span> </font>
+						</center> 
+					</td>  
+					<td colspan="1" >   
+						<span id="doamdat" class="cssdoam" ></span>
+					</td>  
+					<td colspan="2" >   
+						<center>				
+						<div id="chart_doamdat";style="width: 400px; height: 120px;"></div>
+						</center>
+						
+					</td> 
+					<td colspan="2" >  
+						<span>Bật bơm nếu nhỏ hơn:</span>
+						<input type="number" class="css_input"id="moist_min" min="0" max="100"><br><br>
+					</td>
+					<td colspan="2" >  
+						<span>Tắt bơm nếu lớn hơn:</span>
+						<input type="number" class="css_input"id="moist_max" min="0" max="100"><br><br>
+					</td>
+					<td colspan="1" >  
+						<button type="button" id="button_hum" class="button_save" onclick="moist_save()">Save</button>
+	
+					</td>
+				</tr>
+  
+  
+			   <tr> 
+				 <td colspan="1" > <center> <font size="5"> <span class="font"> <b> ĐÈN </b> </span> </font></center> </td>  
+				  <td colspan="1" >   
+					 <span id="den" class="cssden"    >0</span>
+					</td> 
+				 </td>  
+				 
+				 <td colspan="1" >   
+			
+					 <button id="button_den" class="button" onclick = clicklamp() >ĐÈN</button>
+					 </td> 
+				 </td>
+				 <td colspan="1" > <center> <font size="5"> <span class="font"> <b> Start </b> </span> </font></center> </td>  
+				 <td colspan="1" >  
+					<span>Hour:</span>
+					<input type="number" class="css_input"id="l_s_hour" min="0" max="23"><br><br>
+				</td>
+				<td colspan="1" >  
+					<span>Minute:</span>
+					<input type="number" class="css_input"id="l_s_minute" min="0" max="59"><br><br>
+				</td>
+				<td colspan="1" >  
+					<span>Day:</span>
+					<input type="number" class="css_input" id="l_s_day" min="1" max="31"><br><br>
+				</td>
+				<td colspan="1" > <center> <font size="5"> <span class="font"> <b> End </b> </span> </font></center> </td>  
+				<td colspan="1" >  
+					<span>Hour:</span>
+					<input type="number" class="css_input"id="l_e_hour" min="0" max="23"><br><br>
+				</td>
+				<td colspan="1" >  
+					<span>Minute:</span>
+					<input type="number" class="css_input"id="l_e_minute" min="0" max="59"><br><br>
+				</td>
+				<td colspan="1" >  
+					<span>Day:</span>
+					<input type="number" class="css_input" id="l_e_day" min="1" max="31"><br><br>
+				</td>
+				<td colspan="1" >  
+					<button type="button" id="button_den_save" class="button_save" onclick="lamp_saveTimer()">Save</button>
+
+				</td>
+
+			  </tr>
+			  
+			  <tr> 
+				 <td colspan="1" > <center> <font size="5"> <span class="font"> <b> QUẠT </b> </span> </font></center> </td>  
+				  <td colspan="1" >   
+						<span id="quat" class="cssquat" >0 </span>
+						
+					</td>  
+					
+				<td colspan="1" >   
+			
+					 <button id="button_quat" class="button" onclick = clickfan()>QUẠT</button>
+					
+					 </td> 
+				 </td>
+				 <td colspan="1" > <center> <font size="5"> <span class="font"> <b> Start </b> </span> </font></center> </td>  
+				 <td colspan="1" >  
+					<center>
+					<span>Hour:</span>
+					<input type="number" class="css_input" id="f_s_hour" min="0" max="23"><br><br>
+				</center>
+				</td>
+				<td colspan="1" >  
+					<center>
+					<span>Minute:</span>
+					<input type="number" class="css_input"id="f_s_minute" min="0" max="59"><br><br>
+				</center>
+				</td>
+				<td colspan="1" >  
+					<center>
+					<span>Day:</span>
+					<input type="number" class="css_input"id="f_s_day" min="1" max="31"><br><br>
+				</center>
+				</td>
+				<td colspan="1" > <center> <font size="5"> <span class="font"> <b> End </b> </span> </font></center> </td>  
+				<td colspan="1" >  
+					<center>
+					<span>Hour:</span>
+					<input type="number" class="css_input" id="f_e_hour" min="0" max="23"><br><br>
+				</center>
+				</td>
+				<td colspan="1" >  
+					<center>
+					<span>Minute:</span>
+					<input type="number" class="css_input"id="f_e_minute" min="0" max="59"><br><br>
+				</center>
+				</td>
+				<td colspan="1" >  
+					<center>
+					<span>Day:</span>
+					<input type="number" class="css_input"id="f_e_day" min="1" max="31"><br><br>
+				</center>
+				</td>
+				<td colspan="1" >  
+					<center>
+					<button type="button" id="button_quat_save" class="button_save" onclick="fan_saveTimer()">Save</button>
+				</center>
+
+				</td>
+			  </tr>
+			  
+			  
+			  <tr> 
+				 <td colspan="1" > <center> <font size="5"> <span class="font"> <b> BƠM </b> </span> </font></center> </td>  
+				  <td colspan="1" >   
+					 <span id="maybom" class="cssden"  >0 </span>
+	
+					 </td> 
+				 </td>  
+				 
+				 <td colspan="1" >   
+			
+					 <button id="button_bom" class="button" onclick = clickpump()>BƠM</button>
+					 </td> 
+				 </td>
+				 <td colspan="1" > <center> <font size="5"> <span class="font"> <b> Start </b> </span> </font></center> </td>  
+				 <td colspan="1" >  
+					<span>Hour:</span>
+					<input type="number"  class="css_input" id="p_s_hour" min="0" max="23"><br><br>
+				</td>
+				<td colspan="1" >  
+					<span>Minute:</span>
+					<input type="number" class="css_input" id="p_s_minute" min="0" max="59"><br><br>
+				</td>
+				<td colspan="1" >  
+					<span>Day:</span>
+					<input type="number" class="css_input" id="p_s_day" min="1" max="31"><br><br>
+				</td>
+				<td colspan="1" > <center> <font size="5"> <span class="font"> <b> End </b> </span> </font></center> </td>  
+				<td colspan="1" >  
+					<span>Hour:</span>
+					<input type="number"  class="css_input" id="p_e_hour" min="0" max="23"><br><br>
+				</td>
+				<td colspan="1" >  
+					<span>Minute:</span>
+					<input type="number" class="css_input" id="p_e_minute" min="0" max="59"><br><br>
+				</td>
+				<td colspan="1" >  
+					<span>Day:</span>
+					<input type="number" class="css_input" id="p_e_day" min="1" max="31"><br><br>
+				</td>
+				<td colspan="1" >  
+					<button type="button" id="button_bom_save" class="button_save" onclick="pump_saveTimer()">Save</button>
+
+				</td>
+			  </tr>
+  
+			  
+         <!-- </table>       
+        </div> -->
+
+
+		 <!-- <table width="500" height="auto" border="2" cellpadding="10" align="center" > -->
+		 
+		 <tr width="600" height="auto" border="2" cellpadding="10" align="center">
+            <th colspan="12" > 
+					<center> 
+						<font size="5"> 
+							<span class="font"> <b >Lại Thế Dân</b>  </span>
+							<br>
+							<span class="font"> <b>Lê Nguyễn Hồng Minh</b>  </span>
+							<br>
+							<span class="font"> <b>GVHD : Thầy Lê Bá Chung</b>  </span>
+						</font>
+					</center>
+			</th>
+          </tr>
+		 
+		 
+		 </table>
+		</div>
+		
+
+ 
+		
+		 </div>
+    	</div>
+	 
+		 <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+		 <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
+		 
+		 <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
+		 
+		 <script src="index.js"></script> 
+
+
+   </body> 
+   
+  </html>
